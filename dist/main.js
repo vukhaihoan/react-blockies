@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -8,11 +8,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require('react');
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = require('prop-types');
+var _propTypes = require("prop-types");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -37,17 +37,17 @@ var Identicon = function (_Component) {
   }
 
   _createClass(Identicon, [{
-    key: 'componentDidMount',
+    key: "componentDidMount",
     value: function componentDidMount() {
       this.generateIdenticon(_extends({}, this.props));
     }
   }, {
-    key: 'componentWillUpdate',
+    key: "componentWillUpdate",
     value: function componentWillUpdate(nextProps) {
       if (!this.isEquivalent(this.props, nextProps)) this.generateIdenticon(_extends({}, nextProps));
     }
   }, {
-    key: 'isEquivalent',
+    key: "isEquivalent",
     value: function isEquivalent(prevProps, nextProps) {
       var aProps = Object.getOwnPropertyNames(prevProps);
       var bProps = Object.getOwnPropertyNames(nextProps);
@@ -67,20 +67,19 @@ var Identicon = function (_Component) {
       return true;
     }
   }, {
-    key: 'generateIdenticon',
+    key: "generateIdenticon",
     value: function generateIdenticon(options) {
-      // NOTE --  Majority of this code is referenced from: https://github.com/alexvandesande/blockies
+      // NOTE --  Majority of this code is referenced from: https://github.com/vukhaihoan/blockies
       //          Mostly to ensure congruence to Ethereum Mist's Identicons
 
       // The random number is a js implementation of the Xorshift PRNG
       var randseed = new Array(4); // Xorshift: [x, y, z, w] 32 bit values
 
       function seedrand(seed) {
-        for (var i = 0; i < randseed.length; i++) {
-          randseed[i] = 0;
-        }
-        for (var _i = 0; _i < seed.length; _i++) {
-          randseed[_i % 4] = (randseed[_i % 4] << 5) - randseed[_i % 4] + seed.charCodeAt(_i);
+        randseed.fill(0);
+
+        for (var i = 0; i < seed.length; i++) {
+          randseed[i % 4] = (randseed[i % 4] << 5) - randseed[i % 4] + seed.charCodeAt(i);
         }
       }
 
@@ -97,15 +96,14 @@ var Identicon = function (_Component) {
       }
 
       function createColor() {
-        // saturation is the whole color spectrum
+        //saturation is the whole color spectrum
         var h = Math.floor(rand() * 360);
-        // saturation goes from 40 to 100, it avoids greyish colors
-        var s = rand() * 60 + 40 + '%';
-        // lightness can be anything from 0 to 100, but probabilities are a bell curve around 50%
-        var l = (rand() + rand() + rand() + rand()) * 25 + '%';
+        //saturation goes from 40 to 100, it avoids greyish colors
+        var s = rand() * 60 + 40 + "%";
+        //lightness can be anything from 0 to 100, but probabilities are a bell curve around 50%
+        var l = (rand() + rand() + rand() + rand()) * 25 + "%";
 
-        var color = 'hsl(' + h + ',' + s + ',' + l + ')';
-        return color;
+        return "hsl(" + h + "," + s + "," + l + ")";
       }
 
       function createImageData(size) {
@@ -140,12 +138,12 @@ var Identicon = function (_Component) {
         var size = width * scale;
 
         identicon.width = size;
-        identicon.style.width = size + 'px';
+        identicon.style.width = size + "px";
 
         identicon.height = size;
-        identicon.style.height = size + 'px';
+        identicon.style.height = size + "px";
 
-        var cc = identicon.getContext('2d');
+        var cc = identicon.getContext("2d");
         cc.fillStyle = bgcolor;
         cc.fillRect(0, 0, identicon.width, identicon.height);
         cc.fillStyle = color;
@@ -180,11 +178,11 @@ var Identicon = function (_Component) {
       return canvas;
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
       var _this2 = this;
 
-      return _react2.default.createElement('canvas', {
+      return _react2.default.createElement("canvas", {
         ref: function ref(identicon) {
           _this2.identicon = identicon;
         },
@@ -200,7 +198,7 @@ exports.default = Identicon;
 
 
 Identicon.defaultProps = {
-  className: 'identicon'
+  className: "identicon"
 };
 
 Identicon.propTypes = {

@@ -1,10 +1,13 @@
 {
-  "name": "react-blockies",
+  "name": "@vukhaihoan/react-blockies",
   "version": "1.4.1",
   "description": "Ethereum Style Identicons for React",
   "main": "dist/main.js",
-  "repository": "git@github.com:stephensprinkle/react-blockies.git",
-  "author": "Stephen Sprinkle",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/vukhaihoan/react-blockies.git"
+  },
+  "author": "Vu Khai Hoan",
   "license": "MIT",
   "scripts": {
     "build": "npx babel src/main.jsx > dist/main.js"
@@ -21,5 +24,9 @@
     "babel-plugin-transform-react-jsx": "6.24.1",
     "babel-preset-es2015": "6.24.1",
     "react": "15.5.4"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/vukhaihoan/react-blockies/issues"
+  },
+  "homepage": "https://github.com/vukhaihoan/react-blockies#readme"
 }
