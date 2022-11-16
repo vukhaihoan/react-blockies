@@ -1,6 +1,6 @@
 {
   "name": "@vukhaihoan/react-blockies",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Ethereum Style Identicons for React",
   "main": "dist/main.js",
   "repository": {
