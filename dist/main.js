@@ -186,7 +186,8 @@ var Identicon = function (_Component) {
         ref: function ref(identicon) {
           _this2.identicon = identicon;
         },
-        className: this.props.className
+        className: this.props.className,
+        style: this.props.style
       });
     }
   }]);
@@ -207,6 +208,7 @@ Identicon.propTypes = {
   scale: _propTypes2.default.number,
   color: _propTypes2.default.string,
   bgColor: _propTypes2.default.string,
-  spotColor: _propTypes2.default.string
+  spotColor: _propTypes2.default.string,
+  style: _propTypes2.default.object
 };
 

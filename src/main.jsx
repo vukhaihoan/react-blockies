@@ -162,6 +162,7 @@ export default class Identicon extends Component {
           this.identicon = identicon;
         }}
         className={this.props.className}
+        style={this.props.style}
       />
     );
   }
@@ -178,4 +179,5 @@ Identicon.propTypes = {
   color: PropTypes.string,
   bgColor: PropTypes.string,
   spotColor: PropTypes.string,
+  style: PropTypes.object,
 };
